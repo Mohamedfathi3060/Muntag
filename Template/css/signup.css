@@ -11,3 +11,58 @@
     left: 50%;
     transform: translateX(-50%);
 }
+footer{
+    background-color: black;
+}
+footer p{
+    margin: 0;
+}
+.content{
+    padding: 80px 135px 40px 135px;
+}
+footer ul{
+    list-style: none;
+    padding: 0;
+}
+footer ul li{
+color: white;
+font-weight: 300;
+font-size: 16px;
+}
+footer ul li h6{
+    font-size: 20px;
+    font-weight: 400;
+
+}
+footer .apps img{
+    cursor: pointer;
+}
+footer ul li input{
+    background-color: inherit;
+    outline: none;
+    border: 2px white solid;
+    color: white;
+    height: 46px;
+    padding-left: 16px;
+    padding-right: 40px;
+    border-radius: 4px;
+    width: 100%;
+}
+footer ul li .input-container{
+    position: relative;
+    width: 82%;
+}
+footer ul li .input-container img{
+    position: absolute;
+    top: 50%;
+    right: 4%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+footer ul li a{
+    text-decoration: none;
+    color: white;
+}
+footer .icons li a i{
+    font-size: 18px;
+}
