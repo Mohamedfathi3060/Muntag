@@ -1,0 +1,13 @@
+.active {
+    position: relative;
+}
+.active::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    background-color: black;
+    top: 75%;
+    left: 50%;
+    transform: translateX(-50%);
+}
