@@ -11,6 +11,49 @@
     left: 50%;
     transform: translateX(-50%);
 }
+
+.searchform {
+    position: relative;
+}
+
+.searchinput {
+    position: relative;
+}
+
+.searchbutton {
+    position: absolute;
+    background-color: transparent;
+    width: 50px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    outline: none;
+    border: 0;
+    color: rgba(0, 0, 0, 0.3);
+    transition: 0.4s all ease;
+}
+
+.searchbutton:hover {
+    color: rgb(0, 0, 0);
+}
+
+.accountform {
+    position: relative;
+}
+
+.outlinehover {
+    position: relative;
+}
+
+.outlinehover:hover {
+    color: white !important;
+}
+
+.googleicon {
+    position: absolute;
+    left: 0;
+}
+
 footer{
     background-color: black;
 }
