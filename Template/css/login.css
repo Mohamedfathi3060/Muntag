@@ -1,0 +1,112 @@
+.active {
+    position: relative;
+}
+.active::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    background-color: black;
+    top: 75%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.login-container{
+    padding: 30px 135px 140px 0;
+}
+.img-container img{
+    margin-left: -80px;
+}
+.login-container section:last-child{
+    margin-left: 130px;
+}
+.login-container section:last-child h2{
+    letter-spacing: 1.2px;
+}
+.login-container section:last-child form input{
+    border-width: 0 0 1px 0;
+    padding-bottom: 4px;
+}
+.login-container section:last-child form input{
+    border-width: 0 0 1px 0;
+}
+.login-container section:last-child form input:focus{
+    outline: 0;
+}
+.login-container section:last-child form input[type="password"]{
+    margin-bottom: 48px;
+    margin-top: 48px;
+}
+.login-container section:last-child form .buttons button{
+    border: none;
+    background-color: #DB4444;
+    color: white;
+    padding: 10px 40px;
+    border-radius: 4px;
+}
+.login-container section:last-child form .buttons button:hover{
+    background-color: rgb(219, 68, 68,0.8);
+}
+.login-container section:last-child form .buttons a{
+    color: #DB4444;
+    text-decoration: none;
+}
+.login-container section:last-child form .buttons a:hover{
+    color: #DB4444;
+    text-decoration:underline;
+}
+footer{
+    background-color: black;
+}
+footer p{
+    margin: 0;
+}
+.content{
+    padding: 80px 135px 40px 135px;
+}
+footer ul{
+    list-style: none;
+    padding: 0;
+}
+footer ul li{
+color: white;
+font-weight: 300;
+font-size: 16px;
+}
+footer ul li h6{
+    font-size: 20px;
+    font-weight: 400;
+
+}
+footer .apps img{
+    cursor: pointer;
+}
+footer ul li input{
+    background-color: inherit;
+    outline: none;
+    border: 2px white solid;
+    color: white;
+    height: 46px;
+    padding-left: 16px;
+    padding-right: 40px;
+    border-radius: 4px;
+    width: 100%;
+}
+footer ul li .input-container{
+    position: relative;
+    width: 82%;
+}
+footer ul li .input-container img{
+    position: absolute;
+    top: 50%;
+    right: 4%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+footer ul li a{
+    text-decoration: none;
+    color: white;
+}
+footer .icons li a i{
+    font-size: 18px;
+}
