@@ -49,10 +49,40 @@
     color: white !important;
 }
 
+.googlesignup {
+    position: relative;
+}
+
 .googleicon {
     position: absolute;
-    left: 0;
+    left: 30%;
+    top: 50%;
+    transform: translate(-50%,-50%);
 }
+
+#name {
+    position: relative;
+}
+#name:focus {
+    border: 1px solid #000 !important;
+    box-shadow: none;
+}
+
+
+#identifier {
+    position: relative;
+}
+
+
+#password {
+    position: relative;
+}
+
+
+#confirmpassword {
+    position: relative;
+}
+
 
 footer{
     background-color: black;
