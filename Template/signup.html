@@ -85,9 +85,9 @@
         </div>
         </header>
         <main>
-            <div class="container-fluid my-5">
-                <div class="row justify-content-between">
-                    <div class="col-md-6">
+            <div class="container-fluid my-5 px-0">
+                <div class="row justify-content-between ms-0">
+                    <div class="col-md-6 p-0">
                         <div class="">
                             <img src="imgs/Signup.jpeg" alt="SignUp Wallpaper" class="w-100">
                         </div>
@@ -95,19 +95,27 @@
                     <div class="col-md-6 d-flex justify-content-center align-items-center">
                         <div class="form accountform w-50">
                             <h1>Create an account</h1>
-                            <h6 class="text-secondary">Enter your details below</h6>
+                            <h6 class="text-secondary my-3">Enter your details below</h6>
                             <div class="errorscontainer bg-danger rounded-1 d-none">
                                 <ul class="errorslist">
                                 </ul>
                             </div>
-                            <label for="name"> </label>
-                            <input type="text" name="name" class="form-control border-0 border-bottom" id="name" title="Enter Your Name" placeholder="Name">
-                            <label for="identifier"> </label>
-                            <input type="text" name="identifier" class="form-control border-0 border-bottom" id="identifier" title="Enter Your Email or Phone Number" placeholder="Email or Phone Number">
-                            <label for="password"> </label>
-                            <input type="password" name="password" class="form-control border-0 border-bottom" id="password" title="Enter Your Password" placeholder="Password">
-                            <label for="confirmPassword"> </label>
-                            <input type="password" class="form-control border-0 border-bottom" id="confirmPassword" title="Enter Your Password Again" placeholder="Confirm Password">
+                            <div class="inputcontainer my-4">
+                                <input type="text" class="form-control border-0 border-bottom inputfield empty" id="name" title="Enter Your Name" placeholder="" required>
+                                <label for="name" class="floatinglabel px-2">Name</label>
+                            </div>
+                            <div class="inputcontainer my-4">
+                                <input type="text" class="form-control border-0 border-bottom inputfield empty" id="identifier" title="Enter Your Email or Phone Number" placeholder="" required>
+                                <label for="identifier" class="floatinglabel px-2">Email or Phone Number</label>
+                            </div>
+                            <div class="inputcontainer my-4">
+                                <input type="password" class="form-control border-0 border-bottom inputfield empty" id="password" title="Enter Your Password" placeholder="" required>
+                                <label for="password" class="floatinglabel px-2">Password</label>
+                            </div>
+                            <div class="inputcontainer mt-4">
+                                <input type="password" class="form-control border-0 border-bottom inputfield empty" id="confirmPassword" title="Enter Your Password Again" placeholder="" required>
+                                <label for="confirmPassword" class="floatinglabel px-2">Confirm Password</label>
+                            </div>
                             <button type="submit" class="btn btn-danger w-100 px-2 py-3 mt-4 mb-2 fw-bold createAccountBtn">Create Account</button>
                             <div class="googlesignup">
                                 <button type="submit" class="btn btn-outline-success outlinehover text-black w-100 px-2 py-3 fw-bold">Sign Up with Google</button>
@@ -124,9 +132,12 @@
                                         <rect width="24" height="24" fill="white" transform="translate(0 0.5)"/>
                                         </clipPath>
                                         </defs>
-                                        </svg>
-                                        
+                                    </svg>
                                 </span>
+                            </div>
+                            <div class="d-flex w-100 justify-content-center my-3">
+                                <p class="text-secondary d-inline-block me-2">already have account?</p>
+                                <a href="login.html" class="link-dark text-decoration-underline fw-bold loginlink">login</a>
                             </div>
                         </div>
                     </div>
