@@ -75,15 +75,22 @@
             </section>
             <section class="col-3">
                 <h2>Log in to Muntag</h2>
-                <p class="mb-5 mt-2">Enter your details below</p>
+                <p class="mb-5 mt-2 ">Enter your details below</p>
                 <form action="" class="d-flex flex-column col-6 w-100">
-                    <input type="text" placeholder="Email or Phone Number">
-                    <input type="password" placeholder="Password">
+                    <div class="email-input">
+                        <input type="text" placeholder="Email or Phone Number" class="w-100" id="emailInput">
+                        <p class="not-visible initalemail">Email or Phone Number*</p>
+                    </div>
+                    <div class="password-input">
+                        <input type="password" placeholder="Password" class="w-100" id="passwordInput">
+                        <p class="not-visible initalpassword">Password*</p>
+                    </div>
                     <div class="buttons d-flex justify-content-between align-items-center">
-                        <button type="submit">Log in</button>
+                        <button type="submit" id="login">Log in</button>
                         <a href="">Forget Password?</a>
                     </div>
                 </form>
+                <p class="text-center mt-5 signup">Don't have account yet? <a href="./signup.html" class="ms-2">Signup</a></p>
             </section>
         </div>
     </main>

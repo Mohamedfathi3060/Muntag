@@ -37,29 +37,29 @@
 .email-input{
     position: relative;
 }
-.email-input p{
+.email-input p,.password-input p{
     position: absolute;
     font-size: 14px;
     background-color: white;
-    top: -20%;
     left: 2%;
     font-weight: 600;
     padding: 0 5px;
-    transition: all 0.3s ease; /* Smooth transition */
-
+    transition: all 0.5s ease; 
 }
 .password-input{
     position: relative;
 }
-.password-input p{
-    position: absolute;
-    font-size: 14px;
-    background-color: white;
+.initalemail{
+    top: 28%;
+}
+.initalpassword{
+    top: 45%;
+}
+.goemail{
+    top: -20%;
+}
+.gopassword{
     top: 26%;
-    left: 2%;
-    font-weight: 600;
-    padding: 0 5px;
-    transition: all 0.3s ease; /* Smooth transition */
 }
 .not-visible{
     visibility: hidden;
@@ -93,7 +93,10 @@
     color: #DB4444;
     text-decoration:underline;
 }
-.login-container section:last-child
+.login-container section:last-child p a{ 
+    color: black;
+    font-weight: 600;
+}
 footer{
     background-color: black;
 }
