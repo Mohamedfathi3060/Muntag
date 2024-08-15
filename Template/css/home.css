@@ -55,6 +55,26 @@
     height: 100%;
 }
 
+.layouttrackers {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    width: 150px;
+    z-index: 3;
+}
+
+.layouttrackers ul li {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(48, 47, 47, 0.3);
+}
+
+.layouttrackers ul .activetrackerpoint {
+    background-color: red !important;
+    border: 2px solid #fff;
+}
+
 
 
 
