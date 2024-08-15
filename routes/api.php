@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Products\productsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -19,3 +20,5 @@ Route::group([
     Route::post('/refresh', [AuthController::class, 'refresh'])->middleware('auth:api')->name('refresh');
     Route::get('/me', [AuthController::class, 'me'])->middleware('auth:api')->name('me');
 });
+
+Route::get('/products',[productsController::class,'list']);
