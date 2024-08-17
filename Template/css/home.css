@@ -1,149 +1,355 @@
+body {
+  overflow-x: hidden;
+}
 .active {
-    position: relative;
+  position: relative;
 }
 
 .active::after {
-    content: "";
-    position: absolute;
-    width: 50%;
-    height: 2px;
-    background-color: black;
-    top: 75%;
-    left: 50%;
-    transform: translateX(-50%);
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  background-color: black;
+  top: 75%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .searchform {
-    position: relative;
+  position: relative;
 }
 
 .searchinput {
-    position: relative;
+  position: relative;
 }
 
 .searchbutton {
-    position: absolute;
-    background-color: transparent;
-    width: 50px;
-    height: 100%;
-    right: 0;
-    top: 0;
-    outline: none;
-    border: 0;
-    color: rgba(0, 0, 0, 0.3);
-    transition: 0.4s all ease;
+  position: absolute;
+  background-color: transparent;
+  width: 50px;
+  height: 100%;
+  right: 0;
+  top: 0;
+  outline: none;
+  border: 0;
+  color: rgba(0, 0, 0, 0.3);
+  transition: 0.4s all ease;
 }
 
 .searchbutton:hover {
-    color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
 }
 
 .categories ul li p {
-    letter-spacing: 1.3px;
+  letter-spacing: 1.3px;
 }
 
 .layout {
-    height: 350px;
+  height: 350px;
 }
 
 .layout .layoutimg {
-    height: 350px;
+  height: 350px;
 }
 
 .layout .layoutimg img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .layouttrackers {
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    transform: translate(-50%,50%);
-    width: 150px;
-    z-index: 3;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 150px;
+  z-index: 3;
 }
 
 .layouttrackers ul li {
-    width: 10px;
-    height: 10px;
-    background-color: rgba(48, 47, 47, 0.3);
+  width: 10px;
+  height: 10px;
+  background-color: rgba(48, 47, 47, 0.3);
 }
 
 .layouttrackers ul .activetrackerpoint {
-    background-color: red !important;
-    border: 2px solid #fff;
+  background-color: red !important;
+  border: 2px solid #fff;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-footer{
-    background-color: black;
+.sales-container {
+  padding: 140px 0px 140px 135px;
 }
-footer p{
-    margin: 0;
+.best-sales-container,
+.new-arrival {
+  padding: 140px 135px 140px 135px;
 }
-.content{
-    padding: 80px 135px 40px 135px;
+.sales-container .title h2,
+.best-sales-container .title h2,
+.new-arrival .title h2 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: 16px;
+  color: #db4444;
 }
-footer ul{
-    list-style: none;
-    padding: 0;
+.sales-container .header .title,
+.best-sales-container .header .title,
+.new-arrival .header .title {
+  font-size: 46px;
+  font-weight: 700;
 }
-footer ul li{
-color: white;
-font-weight: 300;
-font-size: 16px;
+.sales-container .header .timer .unit span:first-child {
+  font-weight: 600;
+  margin-bottom: -10px;
 }
-footer ul li h6{
-    font-size: 20px;
-    font-weight: 400;
+.sales-container .header .timer .unit span:last-child {
+  font-weight: 700;
+  font-size: 40px;
+  position: relative;
+}
+.sales-container .header .timer .unit span:last-child::after {
+  content: ":";
+  position: absolute;
+  top: 10%;
+  right: -50%;
+  font-size: 30px;
+  color: #db4444;
+}
+.sales-container .header .timer .unit.no-colon span:last-child::after {
+  content: none;
+}
+.sales-container .header .arrows img {
+  cursor: pointer;
+}
+.sales-container .products-container .img-card,
+.best-sales-container .products-container .img-card {
+  position: relative;
+}
+.sales-container .products-container .img-card .img-container,
+.best-sales-container .products-container .img-card .img-container {
+  background-color: #f5f5f5;
+  position: relative;
+  padding: 50px;
+  width: 270px;
+  height: 250px;
+  border-radius: 4px;
+}
 
+.sales-container .products-container .img-card .img-container:hover .addToCart,
+.best-sales-container
+  .products-container
+  .img-card
+  .img-container:hover
+  .addToCart {
+  opacity: 1;
+  transition: all 0.6s ease-in-out;
 }
-footer .apps img{
-    cursor: pointer;
+.sales-container .products-container .img-card .img-container::before {
+  content: "-40%";
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  background-color: #db4444;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 4px;
 }
-footer ul li input{
-    background-color: inherit;
-    outline: none;
-    border: 2px white solid;
-    color: white;
-    height: 46px;
-    padding-left: 16px;
-    padding-right: 40px;
-    border-radius: 4px;
-    width: 100%;
+.sales-container .products-container .img-card .img-container .icons,
+.best-sales-container .products-container .img-card .img-container .icons {
+  position: absolute;
+  top: 5%;
+  right: 5%;
 }
-footer ul li .input-container{
-    position: relative;
-    width: 82%;
+.sales-container .products-container .img-card .img-container .icons img,
+.best-sales-container .products-container .img-card .img-container .icons img {
+  cursor: pointer;
 }
-footer ul li .input-container img{
-    position: absolute;
-    top: 50%;
-    right: 4%;
-    transform: translateY(-50%);
-    cursor: pointer;
+.addToCart {
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  opacity: 0;
+  transition: all 0.6s ease-in-out;
 }
-footer ul li a{
-    text-decoration: none;
-    color: white;
+.sales-container .addToCart button,
+.best-sales-container .addToCart button {
+  border: 0;
+  background-color: black;
+  color: white;
+  padding: 7px 93px;
+  border-radius: 0 0 4px 4px;
 }
-footer .icons li a i{
-    font-size: 18px;
+
+.sales-container .products-container .img-card .info .title,
+.best-sales-container .products-container .img-card .info .title {
+  font-weight: 600;
+}
+.best-sales-container .products-container .img-card .info .title {
+  font-size: 20px;
+}
+.sales-container .products-container .img-card .info .price,
+.best-sales-container .products-container .img-card .info .price {
+  color: #db4444;
+  font-weight: 600;
+}
+.sales-container .products-container .img-card .info .price span,
+.best-sales-container .products-container .img-card .info .price span {
+  color: #7d8184;
+  text-decoration: line-through;
+}
+.sales-container .products-container .img-card .info .review .quantity,
+.best-sales-container .products-container .img-card .info .review .quantity {
+  color: #7d8184;
+  font-weight: 600;
+}
+.sales-container .productsbtn {
+  text-decoration: none;
+  width: fit-content;
+  color: white;
+  background-color: #db4444;
+  padding: 10px 50px;
+  border-radius: 4px;
+}
+.productsbtn:hover {
+  background-color: rgb(219, 68, 68, 0.8);
+}
+
+.best-sales-container .title .productsbtn {
+  text-decoration: none;
+  width: fit-content;
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+  background-color: #db4444;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+.best-sales-container .title .productsbtn:hover {
+  background-color: rgb(219, 68, 68, 0.8);
+}
+
+.new-arrival .products .bigger-product {
+  position: relative;
+}
+.new-arrival .products .bigger-product .info {
+  position: absolute;
+  bottom: 3%;
+  left: 5%;
+}
+.new-arrival .products .info .title {
+  font-weight: 600;
+  font-size: 22px;
+  color: white;
+}
+.new-arrival .products .info .description {
+  font-size: 12px;
+  color: white;
+}
+.new-arrival .products .info a {
+  color: white;
+}
+.new-arrival .products .bigger-product .img-container {
+  background-color: #0d0d0d;
+  padding: 90px 40px 0 40px;
+  border-radius: 4px;
+}
+.new-arrival .products .other-products .bigger-one .img-container {
+  background-color: #0d0d0d;
+  padding-left: 100px;
+  border-radius: 4px;
+}
+.new-arrival .products .other-products .bigger-one {
+  position: relative;
+}
+.new-arrival .products .other-products .bigger-one .info {
+  position: absolute;
+  bottom: 7%;
+  left: 5%;
+}
+.new-arrival .products .other .product-one .img-container {
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.8), #0d0d0d);
+  padding: 36px 50px;
+  border-radius: 4px;
+}
+.new-arrival .products .other .product-one,
+.new-arrival .products .other .product-two {
+  position: relative;
+}
+.new-arrival .products .other .product-one .info,
+.new-arrival .products .other .product-two .info {
+  position: absolute;
+  bottom: 7%;
+  left: 5%;
+}
+.new-arrival .products .other .product-two .img-container {
+  background: radial-gradient(circle, rgba(57, 57, 57, 0.8), #0d0d0d);
+  padding: 45px 50px;
+  border-radius: 4px;
+}
+
+.features {
+  padding: 0px 250px 140px 250px;
+}
+.features .features-container .feature .title h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+.features .features-container .feature .description {
+  font-size: 14px;
+}
+
+footer {
+  background-color: black;
+}
+footer p {
+  margin: 0;
+}
+.content {
+  padding: 80px 135px 40px 135px;
+}
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+footer ul li {
+  color: white;
+  font-weight: 300;
+  font-size: 16px;
+}
+footer ul li h6 {
+  font-size: 20px;
+  font-weight: 400;
+}
+footer .apps img {
+  cursor: pointer;
+}
+footer ul li input {
+  background-color: inherit;
+  outline: none;
+  border: 2px white solid;
+  color: white;
+  height: 46px;
+  padding-left: 16px;
+  padding-right: 40px;
+  border-radius: 4px;
+  width: 100%;
+}
+footer ul li .input-container {
+  position: relative;
+  width: 82%;
+}
+footer ul li .input-container img {
+  position: absolute;
+  top: 50%;
+  right: 4%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+footer ul li a {
+  text-decoration: none;
+  color: white;
+}
+footer .icons li a i {
+  font-size: 18px;
 }
