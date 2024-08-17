@@ -229,6 +229,28 @@ body {
   background-color: rgb(219, 68, 68, 0.8);
 }
 
+.controlicons span {
+  cursor: pointer;
+}
+
+.cards .card:hover , .activecard{
+  background-color: #db4444;
+  color: white;
+  transition: 1s all ease;
+}
+.card .categoryicon svg path, .card .categoryicon svg line {
+  transition: 0.5s all ease;
+}
+.card:hover .categoryicon svg path,  .card:hover .categoryicon svg line {
+  stroke: white !important;
+}
+.activecard .categoryicon svg path, .activecard .categoryicon svg line {
+  transition: 0.5s all ease;
+}
+.activecard:hover .categoryicon svg path,  .activecard:hover .categoryicon svg line {
+  stroke: white !important;
+}
+
 .new-arrival .products .bigger-product {
   position: relative;
 }
