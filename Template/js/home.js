@@ -1,3 +1,5 @@
+let url = "156.196.128.154:9090";
+
 let coverProducts = [
     {
         img: "imgs/cover-product-1.jpeg",
@@ -15,197 +17,8 @@ let coverProducts = [
         marketLine: "DUMMY Market Line"
     },
 ];
-let categories = [
-    {
-        categoryIcon:`  <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_986_899)">
-                                <path d="M38.9375 6.125H17.0625C15.5523 6.125 14.3281 7.34922 14.3281 8.85938V47.1406C14.3281 48.6508 15.5523 49.875 17.0625 49.875H38.9375C40.4477 49.875 41.6719 48.6508 41.6719 47.1406V8.85938C41.6719 7.34922 40.4477 6.125 38.9375 6.125Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M25.6667 7H31.1354" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M28 44.0052V44.0305" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                <line x1="15.1667" y1="39.8334" x2="40.8333" y2="39.8334" stroke="black" stroke-width="2"/>
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_986_899">
-                                    <rect width="56" height="56" fill="white"/>
-                                </clipPath>
-                            </defs>
-                        </svg> `,
-        categoryName:"Phones"
-    },
-    {
-        categoryIcon:`  <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_986_202)">
-                                <path d="M46.6667 9.33337H9.33333C8.04467 9.33337 7 10.378 7 11.6667V35C7 36.2887 8.04467 37.3334 9.33333 37.3334H46.6667C47.9553 37.3334 49 36.2887 49 35V11.6667C49 10.378 47.9553 9.33337 46.6667 9.33337Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M16.3333 46.6666H39.6667" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M21 37.3334V46.6667" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M35 37.3334V46.6667" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M8 32H48" stroke="black" stroke-width="2" stroke-linecap="round"/>
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_986_202">
-                                    <rect width="56" height="56" fill="white"/>
-                                </clipPath>
-                            </defs>
-                        </svg>  `, 
-        categoryName:"Computers"
-    },
-];
-let exploreProducts = [
-    {
-        img: "imgs/explore_product_1.png",
-        name: "Breed Dry Dog Food",
-        price: 2000,
-        rating: 3.5,
-        quantity: 88
-    },
-    {
-        img: "imgs/explore_product_1.png",
-        name: "Dummy Product Name",
-        price: 20000,
-        rating: 2,
-        quantity: 100
-    },
-    {
-        img: "imgs/explore_product_1.png",
-        name: "Breed Dry Dog Food",
-        price: 2000,
-        rating: 3.5,
-        quantity: 88
-    },
-    {
-        img: "imgs/explore_product_1.png",
-        name: "Dummy Product Name",
-        price: 20000,
-        rating: 2,
-        quantity: 100
-    },
-    {
-        img: "imgs/explore_product_1.png",
-        name: "Breed Dry Dog Food",
-        price: 2000,
-        rating: 3.5,
-        quantity: 88
-    },
-    {
-        img: "imgs/explore_product_1.png",
-        name: "Dummy Product Name",
-        price: 20000,
-        rating: 2,
-        quantity: 100
-    },
-    {
-        img: "imgs/explore_product_1.png",
-        name: "Breed Dry Dog Food",
-        price: 2000,
-        rating: 3.5,
-        quantity: 88
-    },
-    {
-        img: "imgs/explore_product_1.png",
-        name: "Dummy Product Name",
-        price: 20000,
-        rating: 2,
-        quantity: 100
-    },
-    {
-        img: "imgs/explore_product_1.png",
-        name: "Breed Dry Dog Food",
-        price: 2000,
-        rating: 3.5,
-        quantity: 88
-    },
-    {
-        img: "imgs/explore_product_1.png",
-        name: "Dummy Product Name",
-        price: 20000,
-        rating: 2,
-        quantity: 100
-    },
-    {
-        img: "imgs/explore_product_1.png",
-        name: "Breed Dry Dog Food",
-        price: 2000,
-        rating: 3.5,
-        quantity: 88
-    },
-    {
-        img: "imgs/explore_product_1.png",
-        name: "Dummy Product Name",
-        price: 20000,
-        rating: 2,
-        quantity: 100
-    },
-    {
-        img: "imgs/explore_product_1.png",
-        name: "Breed Dry Dog Food",
-        price: 2000,
-        rating: 3.5,
-        quantity: 88
-    },
-    {
-        img: "imgs/explore_product_1.png",
-        name: "Dummy Product Name",
-        price: 20000,
-        rating: 2,
-        quantity: 100
-    },
-    {
-        img: "imgs/explore_product_1.png",
-        name: "Breed Dry Dog Food",
-        price: 2000,
-        rating: 3.5,
-        quantity: 88
-    },
-    {
-        img: "imgs/explore_product_1.png",
-        name: "Dummy Product Name",
-        price: 20000,
-        rating: 2,
-        quantity: 100
-    },
-    {
-        img: "imgs/explore_product_1.png",
-        name: "Breed Dry Dog Food",
-        price: 2000,
-        rating: 3.5,
-        quantity: 88
-    },
-    {
-        img: "imgs/explore_product_1.png",
-        name: "Dummy Product Name",
-        price: 20000,
-        rating: 2,
-        quantity: 100
-    },
-    {
-        img: "imgs/explore_product_1.png",
-        name: "Breed Dry Dog Food",
-        price: 2000,
-        rating: 3.5,
-        quantity: 88
-    },
-    {
-        img: "imgs/explore_product_1.png",
-        name: "Dummy Product Name",
-        price: 20000,
-        rating: 2,
-        quantity: 100
-    },
-    {
-        img: "imgs/explore_product_1.png",
-        name: "Breed Dry Dog Food",
-        price: 2000,
-        rating: 3.5,
-        quantity: 88
-    },
-    {
-        img: "imgs/explore_product_1.png",
-        name: "Dummy Product Name",
-        price: 20000,
-        rating: 2,
-        quantity: 100
-    },
-]
+let categories = [];
+let exploreProducts = [];
 let filledStar = `<svg width="16" class="me-1" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M14.673 7.17173C15.7437 6.36184 15.1709 4.65517 13.8284 4.65517H11.3992C10.7853 4.65517 10.243 4.25521 10.0617 3.66868L9.33754 1.32637C8.9309 0.0110567 7.0691 0.0110564 6.66246 1.32637L5.93832 3.66868C5.75699 4.25521 5.21469 4.65517 4.60078 4.65517H2.12961C0.791419 4.65517 0.215919 6.35274 1.27822 7.16654L3.39469 8.78792C3.85885 9.1435 4.05314 9.75008 3.88196 10.3092L3.11296 12.8207C2.71416 14.1232 4.22167 15.1704 5.30301 14.342L7.14861 12.9281C7.65097 12.5432 8.34903 12.5432 8.85139 12.9281L10.6807 14.3295C11.7636 15.159 13.2725 14.1079 12.8696 12.8046L12.09 10.2827C11.9159 9.71975 12.113 9.10809 12.5829 8.75263L14.673 7.17173Z" fill="#FFAD33"/>
                                                 </svg> `;
@@ -237,7 +50,6 @@ let emptyStar = `<svg width="16" class="me-1 height="15" viewBox="0 0 16 15" fil
         let categoriesCount = categories.length;
         let categoriesCardContainer = document.querySelector(".browse-by-category-section .cards");
         let categoryCards;
-        let categoryCard;
         let currentCategoryCard = 0;
         let categoriesLeftArrow = document.querySelector(".browse-by-category-section .controlicons .leftarrow");
         let categoriesRightArrow = document.querySelector(".browse-by-category-section .controlicons .rightarrow");
@@ -245,7 +57,6 @@ let emptyStar = `<svg width="16" class="me-1 height="15" viewBox="0 0 16 15" fil
         let exploreProductsCardLeftArrow = document.querySelector(".explore-products-section .controlicons .leftarrow");
         let exploreProductsCardRightArrow = document.querySelector(".explore-products-section .controlicons .rightarrow");
         let exploreProductCards;
-        let exploreProductCard;
         let exploreProductsCount = exploreProducts.length;
         let currentExploreProductCard = 0;
 
@@ -262,9 +73,14 @@ let emptyStar = `<svg width="16" class="me-1 height="15" viewBox="0 0 16 15" fil
 
         async function getCategories(){
             try {
-                let res = await fetch();
+                let res = await fetch(`http://${url}/api/category`,{
+                    headers: {
+                        "Content-Type": "application/json",
+                      },
+                    method: "GET",
+                });
                 let data = await res.json();
-                categories = data.categories;
+                categories = data.data;
                 categoriesCount = categories.length;
             } catch (error) {
                 
@@ -273,12 +89,17 @@ let emptyStar = `<svg width="16" class="me-1 height="15" viewBox="0 0 16 15" fil
 
         async function getExploreProducts(){
             try {
-                let res = await fetch();
+                let res = await fetch(`http://${url}/api/products?page=1&per_page=50`,{
+                    headers: {
+                        "Content-Type": "application/json",
+                      },
+                    method: "GET",
+                });
                 let data = await res.json();
-                exploreProducts = data.products;
+                exploreProducts = data.data;
                 exploreProductsCount = exploreProducts.length;
             } catch (error) {
-                
+                console.log(error);
             }
         }
 
@@ -329,10 +150,10 @@ let emptyStar = `<svg width="16" class="me-1 height="15" viewBox="0 0 16 15" fil
                 categoriesCardContainer.innerHTML += ` <div class="col-md-2 px-3">
                                                             <div class="card d-flex flex-column align-items-center py-5">
                                                                 <div class="categoryicon">
-                                                                    ${categories[i-1].categoryIcon}                                                
+                                                                    ${categories[i-1].icon}                                              
                                                                 </div>
                                                                 <div class="categoryname">
-                                                                    <p class="m-0 fw-bold">${categories[i-1].categoryName}</p>
+                                                                    <p class="m-0 fw-bold">${categories[i-1].category_name}</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -386,17 +207,17 @@ let emptyStar = `<svg width="16" class="me-1 height="15" viewBox="0 0 16 15" fil
                 exploreProductsCardsContainer.innerHTML += `<div class="col-md-3 px-3">
                                                                 <div class="card border-0 position-relative">
                                                                     <div class="cardimg d-flex justify-content-center py-5 rounded-1 position-relative">
-                                                                        <img src="${exploreProducts[i].img}" alt="Product Image">
+                                                                        <img src="${exploreProducts[i].image}" alt="Product Image">
                                                                         <button type="button" class="btn bg-black text-white opacity-0 w-100 position-absolute bottom-0 fs-5 rounded-top-0">Add To Cart</button>
                                                                     </div>
                                                                     <div class="cardtext my-3">
-                                                                        <p class="fw-bold my-1">${exploreProducts[i].name}</p>
+                                                                        <p class="fw-bold my-1">${exploreProducts[i].product_name}</p>
                                                                         <div class="productdetails d-flex">
                                                                             <span class="price fw-bold text-danger me-2">$${exploreProducts[i].price}</span>
                                                                             <span class="ratingstars d-flex align-items-center">
-                                                                                ${getratingstars(exploreProducts[i].rating)}
+                                                                                ${getratingstars(4.3)}
                                                                             </span>
-                                                                            <span class="quantity ms-2 text-secondary fw-bold">(${exploreProducts[i].quantity})</span>
+                                                                            <span class="raters ms-2 text-secondary fw-bold">(${50})</span>
                                                                         </div>
                                                                         <div class="icons">
                                                                             <svg width="34" height="34" class="mb-1" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -412,6 +233,8 @@ let emptyStar = `<svg width="16" class="me-1 height="15" viewBox="0 0 16 15" fil
                                                                     </div>
                                                                 </div>
                                                             </div>`;
+                                                            // ${getratingstars(exploreProducts[i].rating)}
+                                                            // ${exploreProducts[i].raters}
             }
             exploreProductCards = document.querySelectorAll(".explore-products-section .cards .col-md-3 .card");
             exploreProductCard = document.querySelector(".explore-products-section .cards .col-md-3 .card");
@@ -425,9 +248,6 @@ let emptyStar = `<svg width="16" class="me-1 height="15" viewBox="0 0 16 15" fil
                 });
             }
             if(exploreProductsCount > 1) currentExploreProductCard = Math.ceil(categoryCards.length / 2);
-            console.log(exploreProductCards);
-            console.log(currentExploreProductCard);
-            console.log(exploreProductCards[currentExploreProductCard]);
             exploreProductCards[currentExploreProductCard].classList.add("activeexploreproductcard");
             setInterval(()=> {
                 nextExploreProductCard();
@@ -447,6 +267,11 @@ let emptyStar = `<svg width="16" class="me-1 height="15" viewBox="0 0 16 15" fil
         async function exploreProductCardsManager(){
             await getExploreProducts();
             displayExploreProductCards();
+        }
+
+        async function blabla(){
+            await categoryCardManager();
+            exploreProductCardsManager();
         }
 
         categoriesLeftArrow.addEventListener("click", function(){
@@ -486,7 +311,6 @@ let emptyStar = `<svg width="16" class="me-1 height="15" viewBox="0 0 16 15" fil
         });
 
         coverLayoutDisplay();
-        categoriesDisplay();
-        displayExploreProductCards();
+        blabla();
     }
 )();

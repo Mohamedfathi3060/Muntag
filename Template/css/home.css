@@ -247,7 +247,7 @@ body {
 .activecard .categoryicon svg path, .activecard .categoryicon svg line {
   transition: 0.5s all ease;
 }
-.activecard:hover .categoryicon svg path,  .activecard:hover .categoryicon svg line {
+.activecard .categoryicon svg path,  .activecard .categoryicon svg line {
   stroke: white !important;
 }
 

@@ -3,7 +3,7 @@ let nameInput = document.querySelector("#name");
 let identifierInput = document.querySelector("#identifier");
 let passwordInput = document.querySelector("#password");
 let confirmPasswordInput = document.querySelector("#confirmPassword");
-let url = "102.46.211.20:9090";
+export default url = "102.46.211.20:9090";
 
 nameInput.addEventListener("input",function(e){
     checkInput(nameInput,/^[A-Za-z]{3,}[0-9_-]{0,}$/);
