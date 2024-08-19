@@ -17,7 +17,7 @@ return new class extends Migration
                 ->constrained(table: 'products',column: 'product_id');
             $table->string('SKU');
             $table->unsignedInteger('quantity');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->unsignedInteger('price');
             $table->float('discount')->default(0.0);
             $table->integer('sold')->default(0);

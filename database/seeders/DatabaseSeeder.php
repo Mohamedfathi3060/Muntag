@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Products\Product;
 use App\Models\Products\Product_Item;
 use Illuminate\Database\Seeder;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
@@ -30,12 +31,15 @@ class DatabaseSeeder extends Seeder
             "icon"=>'./Category-SmartWatch.svg',
             'created_at'=>now(),
         ]);
-        Product::factory(1000)->create();
-        for ($i = 1; $i <= 10; $i++) {
+        Product::factory(10000)->create();
+
+        for ($i = 1; $i <= 10000; $i++) {
             Product_Item::factory()->create([
                 'product_id'=>$i,
                 'is_default'=>true
             ]);
         }
+        Product_Item::factory(50000)->create();
+
     }
 }

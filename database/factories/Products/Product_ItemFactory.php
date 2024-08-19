@@ -19,12 +19,13 @@ class Product_ItemFactory extends Factory
     public function definition(): array
     {
         return [
-            'product_id' => $this->faker->numberBetween(1,10) ,
+            'product_id' => $this->faker->numberBetween(1,10000) ,
             'SKU'=>$this->faker->title(),
             'quantity'=>$this->faker->numberBetween(0,30),
             'image'=>$this->faker->imageUrl('190','180'),
             'price'=>$this->faker->numberBetween(50,1500),
             'discount'=>$this->faker->numberBetween(0,70)/100,
+            'sold'=>$this->faker->numberBetween(0,200)
         ];
     }
 }

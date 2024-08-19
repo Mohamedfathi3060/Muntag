@@ -25,8 +25,8 @@ class productRequest extends FormRequest
             'sort_by' => 'nullable|in:discount,sold,created_at',
             'order' => 'nullable|in:asc,desc',
 
-            'page'=>'nullable|max:100|min:1',
-            'per_page'=>'nullable|max:100|min:1'
+            'page'=>'nullable|max:2000|min:1',
+            'per_page'=>'nullable|max:2000|min:1'
         ];
     }
 }
