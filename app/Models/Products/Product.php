@@ -10,6 +10,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Product extends Model
 {
     use HasFactory;
+    protected $primaryKey = "product_id";
+    public $autoincrement = true;
+
     public function category():BelongsTo
     {
         return $this->belongsTo(Category::class);

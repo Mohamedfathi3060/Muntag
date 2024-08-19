@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\AuthController\AuthController;
 use App\Http\Controllers\Products\productsController;
+use App\Http\Controllers\Categories\CategoriesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -22,3 +23,4 @@ Route::group([
 });
 
 Route::get('/products',[productsController::class,'list']);
+Route::get('/category',[CategoriesController::class,'list']);

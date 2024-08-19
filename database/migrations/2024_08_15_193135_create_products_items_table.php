@@ -12,13 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products_items', function (Blueprint $table) {
-            $table->id('product_item_id');
+            $table->id('product_item_id')->autoIncrement();
             $table->foreignId('product_id')
                 ->constrained(table: 'products',column: 'product_id');
             $table->string('SKU');
             $table->unsignedInteger('quantity');
             $table->string('image');
             $table->unsignedInteger('price');
+            $table->float('discount')->default(0.0);
+            $table->integer('sold')->default(0);
+            $table->boolean('is_default')->default(false);
+
             $table->timestamps();
 
         });

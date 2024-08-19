@@ -9,6 +9,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Product_Item extends Model
 {
     use HasFactory;
+    protected $primaryKey = "product_item_id";
+    public $autoincrement = true;
+
+    protected $table   = 'products_items';
+    protected $fillable = ['product_id', 'SKU', 'quantity', 'image', 'price', 'discount'];
+
     public function category():BelongsTo
     {
         return $this->belongsTo(Product::class);

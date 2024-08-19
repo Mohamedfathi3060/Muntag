@@ -17,6 +17,7 @@ return new class extends Migration
                 ->nullable()
                 ->constrained(table: 'categories',column:'category_id');
             $table->string('category_name');
+            $table->string('icon')->nullable();
             $table->timestamps();
         });
     }
