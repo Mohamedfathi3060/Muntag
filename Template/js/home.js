@@ -1,4 +1,4 @@
-let url = "156.196.128.154:9090";
+import {url} from "./urls";
 
 let coverProducts = [
     {
@@ -89,7 +89,7 @@ let emptyStar = `<svg width="16" class="me-1 height="15" viewBox="0 0 16 15" fil
 
         async function getExploreProducts(){
             try {
-                let res = await fetch(`http://${url}/api/products?page=1&per_page=50`,{
+                let res = await fetch(`http://${url}/api/products?page=1&per_page=8`,{
                     headers: {
                         "Content-Type": "application/json",
                       },
@@ -282,32 +282,12 @@ let emptyStar = `<svg width="16" class="me-1 height="15" viewBox="0 0 16 15" fil
             nextCategoryCard();
         });
 
-        document.addEventListener("keydown", function(e){
-            if (e.code == "ArrowLeft")
-                 prevCategoryCard();
-        });
-
-        document.addEventListener("keydown", function(e){
-            if (e.code == "ArrowRight")
-                nextCategoryCard();
-        });
-
         exploreProductsCardLeftArrow.addEventListener("click", function(){
             prevExploreProductCard();
         });
 
         exploreProductsCardRightArrow.addEventListener("click", function(){
             nextExploreProductCard();
-        });
-
-        document.addEventListener("keydown", function(e){
-            if (e.code == "ArrowLeft")
-                 prevExploreProductCard();
-        });
-
-        document.addEventListener("keydown", function(e){
-            if (e.code == "ArrowRight")
-                nextExploreProductCard();
         });
 
         coverLayoutDisplay();

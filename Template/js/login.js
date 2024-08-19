@@ -1,3 +1,5 @@
+import {url} from "./urls";
+
 const login = document.getElementById("login");
 const passwordInput = document.getElementById("passwordInput");
 const emailInput = document.getElementById("emailInput");
@@ -62,7 +64,7 @@ login.addEventListener('click',(e)=>{
           password: passwordInput.value
     }
     
-    users("http://41.45.221.32:9090/api/auth/login",data);
+    users(`${url}/api/auth/login`,data);
   }
   else if(emailInput.value == "" && passwordInput.value == ""){
     emailInput.style = `
