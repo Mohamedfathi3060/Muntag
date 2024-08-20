@@ -23,4 +23,5 @@ Route::group([
 });
 
 Route::get('/products',[productsController::class,'list']);
+Route::get('/products/{id}',[productsController::class,'show']);
 Route::get('/category',[CategoriesController::class,'list']);

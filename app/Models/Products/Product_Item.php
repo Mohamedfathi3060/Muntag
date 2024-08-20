@@ -15,9 +15,9 @@ class Product_Item extends Model
     protected $table   = 'products_items';
     protected $fillable = ['product_id', 'SKU', 'quantity', 'image', 'price', 'discount'];
 
-    public function category():BelongsTo
+    public function product():BelongsTo
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Product::class,'product_id');
     }
     // when it is many to many
     // each model has "belongsToMany relation"
