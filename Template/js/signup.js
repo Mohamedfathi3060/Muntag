@@ -1,4 +1,4 @@
-import {url} from "./urls"
+import {url} from "./urls.js"
 
 let createAccountBtn = document.querySelector(".createAccountBtn")
 let nameInput = document.querySelector("#name");

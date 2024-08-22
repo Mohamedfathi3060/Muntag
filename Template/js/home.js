@@ -1,21 +1,21 @@
-import {url} from "./urls";
+import {url} from "./urls.js";
 
 let coverProducts = [
-    {
-        img: "imgs/cover-product-1.jpeg",
-        name: "iPhone 14 Series",
-        marketLine: "Up to 10% off Voucher"
-    },
-    {
-        img: "imgs/cover-product-2.jpeg",
-        name: "DUMMY Product Name",
-        marketLine: "DUMMY Market Line"
-    },
-    {
-        img: "imgs/cover-product-2.jpeg",
-        name: "DUMMY Product Name",
-        marketLine: "DUMMY Market Line"
-    },
+    // {
+    //     img: "imgs/cover-product-1.jpeg",
+    //     name: "iPhone 14 Series",
+    //     marketLine: "Up to 10% off Voucher"
+    // },
+    // {
+    //     img: "imgs/cover-product-2.jpeg",
+    //     name: "DUMMY Product Name",
+    //     marketLine: "DUMMY Market Line"
+    // },
+    // {
+    //     img: "imgs/cover-product-2.jpeg",
+    //     name: "DUMMY Product Name",
+    //     marketLine: "DUMMY Market Line"
+    // },
 ];
 let categories = [];
 let exploreProducts = [];
@@ -40,6 +40,7 @@ let emptyStar = `<svg width="16" class="me-1 height="15" viewBox="0 0 16 15" fil
 // Abdelrahman Scope
 (
     function(){
+        let perpage = 8;
         let coverProductsCount = coverProducts.length;
         let currentCoverProduct;
         let layoutProductImg = document.querySelector(".layout .layoutimg img");
@@ -51,6 +52,8 @@ let emptyStar = `<svg width="16" class="me-1 height="15" viewBox="0 0 16 15" fil
         let categoriesCardContainer = document.querySelector(".browse-by-category-section .cards");
         let categoryCards;
         let currentCategoryCard = 0;
+        let categoryCardsStartIndex = 0;
+        let categoryCardsEndIndex = 7;
         let categoriesLeftArrow = document.querySelector(".browse-by-category-section .controlicons .leftarrow");
         let categoriesRightArrow = document.querySelector(".browse-by-category-section .controlicons .rightarrow");
         let exploreProductsCardsContainer = document.querySelector(".explore-products-section .cards");
@@ -59,17 +62,9 @@ let emptyStar = `<svg width="16" class="me-1 height="15" viewBox="0 0 16 15" fil
         let exploreProductCards;
         let exploreProductsCount = exploreProducts.length;
         let currentExploreProductCard = 0;
-
-        async function getCoverProducts(){
-            try {
-                let res = await fetch();
-                let data = await res.json();
-                coverProducts = data.coverProducts;
-                coverProductsCount = coverProducts.length;
-            } catch (error) {
-                
-            }
-        }
+        let currentExploreProductCardsPage = 1;
+        let exploreProductsCardsStartIndex = (currentExploreProductCardsPage - 1) * perpage;
+        let exploreProductsCardsEndIndex = currentExploreProductCardsPage * perpage - 1;
 
         async function getCategories(){
             try {
@@ -89,18 +84,53 @@ let emptyStar = `<svg width="16" class="me-1 height="15" viewBox="0 0 16 15" fil
 
         async function getExploreProducts(){
             try {
-                let res = await fetch(`http://${url}/api/products?page=1&per_page=8`,{
+                let res = await fetch(`http://${url}/api/products?page=${currentExploreProductCardsPage}&per_page=8`,{
                     headers: {
                         "Content-Type": "application/json",
                       },
                     method: "GET",
                 });
                 let data = await res.json();
-                exploreProducts = data.data;
+                exploreProducts.push(...data.data);
                 exploreProductsCount = exploreProducts.length;
             } catch (error) {
                 console.log(error);
             }
+        }
+
+        async function nextExploreProductCard(){
+            if(exploreProductsCardsEndIndex + perpage > exploreProducts.length){
+                currentExploreProductCardsPage++;
+                await getExploreProducts(currentExploreProductCardsPage);
+                exploreProductsCardsStartIndex = exploreProductsCardsEndIndex + 1;
+                exploreProductsCardsEndIndex += perpage;
+                exploreProductCardsDisplay();
+            }
+            else {
+                exploreProductsCardsStartIndex = exploreProductsCardsEndIndex + 1;
+                exploreProductsCardsEndIndex += perpage;
+                exploreProductCardsDisplay();
+            }
+            // exploreProductCards[currentExploreProductCard].classList.remove("activeexploreproductcard");
+            // currentExploreProductCard++;
+            // if (currentExploreProductCard >= (exploreProductsCount)) {
+            //     currentExploreProductCard = 0;
+            // }
+            // exploreProductCards[currentExploreProductCard].classList.add("activeexploreproductcard");
+        }
+
+        function prevExploreProductCard(){
+            if(exploreProductsCardsStartIndex - perpage >= 0){
+                exploreProductsCardsEndIndex -= perpage;
+                exploreProductsCardsStartIndex -= perpage;
+                exploreProductCardsDisplay();
+            }
+            // exploreProductCards[currentExploreProductCard].classList.remove("activeexploreproductcard");
+            // currentExploreProductCard--;
+            // if (currentExploreProductCard < 0) {
+            //     currentExploreProductCard = exploreProductsCount - 1;
+            // }
+            // exploreProductCards[currentExploreProductCard].classList.add("activeexploreproductcard");
         }
 
         function nextCoverProduct(){
@@ -110,12 +140,15 @@ let emptyStar = `<svg width="16" class="me-1 height="15" viewBox="0 0 16 15" fil
                 currentCoverProduct = 1;
             }
             layoutTrackersPoints[currentCoverProduct-1].classList.add("activetrackerpoint");
-            layoutProductImg.src = coverProducts[currentCoverProduct-1].img; 
-            layoutProductName.innerHTML = coverProducts[currentCoverProduct-1].name;
-            layoutMarketingLine.innerHTML = coverProducts[currentCoverProduct-1].marketLine;
+            layoutProductImg.src = coverProducts[currentCoverProduct-1].image; 
+            layoutProductName.innerHTML = coverProducts[currentCoverProduct-1].product_name;
+            let description = (((coverProducts[currentCoverProduct-1].description).split(" ")).slice(0,7)).join(" ");
+            layoutMarketingLine.innerHTML = description;
         }
 
         function coverLayoutDisplay(){
+            coverProducts = exploreProducts.slice(0,3);
+            coverProductsCount = coverProducts.length;
             currentCoverProduct = Math.ceil(coverProductsCount / 2);
             for (let j = 0; j < coverProductsCount; j++) {
                 if (j+1 == currentCoverProduct) layoutTrackersList.innerHTML += `<li class="bg-secondary rounded-5 mx-1 activetrackerpoint"></li>`;
@@ -125,24 +158,6 @@ let emptyStar = `<svg width="16" class="me-1 height="15" viewBox="0 0 16 15" fil
                 setInterval(()=> {
                     nextCoverProduct();
                 },5000)
-        }
-
-        function nextCategoryCard(){
-            categoryCards[currentCategoryCard].classList.remove("activecard");
-            currentCategoryCard++;
-            if (currentCategoryCard >= (categoriesCount)) {
-                currentCategoryCard = 0;
-            }
-            categoryCards[currentCategoryCard].classList.add("activecard");
-        }
-
-        function prevCategoryCard(){
-            categoryCards[currentCategoryCard].classList.remove("activecard");
-            currentCategoryCard--;
-            if (currentCategoryCard < 0) {
-                currentCategoryCard = categoriesCount - 1;
-            }
-            categoryCards[currentCategoryCard].classList.add("activecard");
         }
 
         function categoriesDisplay(){
@@ -160,30 +175,20 @@ let emptyStar = `<svg width="16" class="me-1 height="15" viewBox="0 0 16 15" fil
                 `;
             }
             categoryCards = document.querySelectorAll(".browse-by-category-section .cards .col-md-2 .card");
-            categoryCard = document.querySelector(".browse-by-category-section .cards .col-md-2 .card");
             if(categoriesCount > 1) currentCategoryCard = Math.ceil(categoryCards.length / 2);
             categoryCards[currentCategoryCard].classList.add("activecard");
             setInterval(()=> {
-                nextCategoryCard();
+                // nextCategoryCard();
             },5000)
         }
 
-        function nextExploreProductCard(){
-            exploreProductCards[currentExploreProductCard].classList.remove("activeexploreproductcard");
-            currentExploreProductCard++;
-            if (currentExploreProductCard >= (exploreProductsCount)) {
-                currentExploreProductCard = 0;
+        function nextCategoriesCards(currentEnd,Range) {
+            if(categories[currentEnd+Range+Range-1]){
+                categoriesDisplay(currentEnd+Range - 1,currentEnd+Range+Range-1);
             }
-            exploreProductCards[currentExploreProductCard].classList.add("activeexploreproductcard");
-        }
-
-        function prevExploreProductCard(){
-            exploreProductCards[currentExploreProductCard].classList.remove("activeexploreproductcard");
-            currentExploreProductCard--;
-            if (currentExploreProductCard < 0) {
-                currentExploreProductCard = exploreProductsCount - 1;
+            else {
+                categoriesDisplay(0,8);
             }
-            exploreProductCards[currentExploreProductCard].classList.add("activeexploreproductcard");
         }
         
         function getratingstars(rating){
@@ -202,8 +207,9 @@ let emptyStar = `<svg width="16" class="me-1 height="15" viewBox="0 0 16 15" fil
             return element;
         }
         
-        function displayExploreProductCards(){
-            for (let i = 0; i < exploreProductsCount; i++) {
+        function exploreProductCardsDisplay(){
+            exploreProductsCardsContainer.innerHTML = "";
+            for (let i = exploreProductsCardsStartIndex; i <= exploreProductsCardsEndIndex; i++) {
                 exploreProductsCardsContainer.innerHTML += `<div class="col-md-3 px-3">
                                                                 <div class="card border-0 position-relative">
                                                                     <div class="cardimg d-flex justify-content-center py-5 rounded-1 position-relative">
@@ -236,8 +242,6 @@ let emptyStar = `<svg width="16" class="me-1 height="15" viewBox="0 0 16 15" fil
                                                             // ${getratingstars(exploreProducts[i].rating)}
                                                             // ${exploreProducts[i].raters}
             }
-            exploreProductCards = document.querySelectorAll(".explore-products-section .cards .col-md-3 .card");
-            exploreProductCard = document.querySelector(".explore-products-section .cards .col-md-3 .card");
             let exploreProductCardsIcons = document.querySelectorAll(".explore-products-section .cards .col-md-3 .card .icons svg");
             for (let i = 0; i < exploreProductCardsIcons.length; i++) {
                 if(i % 2 == 0) exploreProductCardsIcons[i].addEventListener("click", function(){
@@ -247,16 +251,6 @@ let emptyStar = `<svg width="16" class="me-1 height="15" viewBox="0 0 16 15" fil
                     exploreProductCardsIcons[i].classList.toggle("clickedIcon");
                 });
             }
-            if(exploreProductsCount > 1) currentExploreProductCard = Math.ceil(categoryCards.length / 2);
-            exploreProductCards[currentExploreProductCard].classList.add("activeexploreproductcard");
-            setInterval(()=> {
-                nextExploreProductCard();
-            },5000)
-        }
-
-        async function coverLayoutManager(){
-            await getCoverProducts();
-            coverLayoutDisplay();
         }
 
         async function categoryCardManager(){
@@ -266,31 +260,70 @@ let emptyStar = `<svg width="16" class="me-1 height="15" viewBox="0 0 16 15" fil
 
         async function exploreProductCardsManager(){
             await getExploreProducts();
-            displayExploreProductCards();
+            exploreProductCardsDisplay();
         }
 
         async function blabla(){
-            await categoryCardManager();
-            exploreProductCardsManager();
+            await exploreProductCardsManager();
+            coverLayoutDisplay();
+            categoryCardManager();
         }
 
-        categoriesLeftArrow.addEventListener("click", function(){
-            prevCategoryCard();
-        });
+        // categoriesLeftArrow.addEventListener("click", function(){
+        //     prevCategoryCard();
+        // });
 
-        categoriesRightArrow.addEventListener("click", function(){
-            nextCategoryCard();
-        });
+        // categoriesRightArrow.addEventListener("click", function(){
+        //     nextCategoryCard();
+        // });
 
         exploreProductsCardLeftArrow.addEventListener("click", function(){
             prevExploreProductCard();
         });
 
-        exploreProductsCardRightArrow.addEventListener("click", function(){
-            nextExploreProductCard();
+        exploreProductsCardRightArrow.addEventListener("click", async function(){
+            await nextExploreProductCard();
         });
 
-        coverLayoutDisplay();
         blabla();
     }
 )();
+
+
+/*
+    function nextCategoryCard(){
+            categoryCards[currentCategoryCard].classList.remove("activecard");
+            currentCategoryCard++;
+            if (currentCategoryCard >= (categoriesCount)) {
+                currentCategoryCard = 0;
+            }
+            categoryCards[currentCategoryCard].classList.add("activecard");
+        }
+
+    function prevCategoryCard(){
+        categoryCards[currentCategoryCard].classList.remove("activecard");
+        currentCategoryCard--;
+        if (currentCategoryCard < 0) {
+            currentCategoryCard = categoriesCount - 1;
+        }
+        categoryCards[currentCategoryCard].classList.add("activecard");
+    }
+
+    function nextExploreProductCard(){
+            exploreProductCards[currentExploreProductCard].classList.remove("activeexploreproductcard");
+            currentExploreProductCard++;
+            if (currentExploreProductCard >= (exploreProductsCount)) {
+                currentExploreProductCard = 0;
+            }
+            exploreProductCards[currentExploreProductCard].classList.add("activeexploreproductcard");
+        }
+
+    function prevExploreProductCard(){
+        exploreProductCards[currentExploreProductCard].classList.remove("activeexploreproductcard");
+        currentExploreProductCard--;
+        if (currentExploreProductCard < 0) {
+            currentExploreProductCard = exploreProductsCount - 1;
+        }
+        exploreProductCards[currentExploreProductCard].classList.add("activeexploreproductcard");
+    }
+*/

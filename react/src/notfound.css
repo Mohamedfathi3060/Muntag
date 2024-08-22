@@ -1,0 +1,6 @@
+.notfound {
+    height: calc(100vh - 146px);
+}
+.notfound h1 {
+    font-size: 10rem;
+}

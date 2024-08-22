@@ -1,4 +1,4 @@
-import {url} from "./urls";
+import {url} from "./urls.js";
 
 const login = document.getElementById("login");
 const passwordInput = document.getElementById("passwordInput");
