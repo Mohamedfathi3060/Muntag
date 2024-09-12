@@ -1,0 +1,55 @@
+.searchform {
+  position: relative;
+}
+
+.searchinput {
+  position: relative;
+}
+
+.searchbutton {
+  position: absolute;
+  background-color: transparent;
+  width: 50px;
+  height: 100%;
+  right: 0;
+  top: 0;
+  outline: none;
+  border: 0;
+  color: rgba(0, 0, 0, 0.3);
+  transition: 0.4s all ease;
+}
+
+.searchbutton:hover {
+  color: rgb(0, 0, 0);
+}
+
+.accountform {
+  position: relative;
+}
+
+.outlinehover {
+  position: relative;
+}
+
+.outlinehover:hover {
+  color: white !important;
+}
+
+.link {
+  color: black !important;
+}
+
+.active {
+  position: relative;
+}
+
+.active::after {
+  position: absolute;
+  content: "";
+  width: 55%;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 1);
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
