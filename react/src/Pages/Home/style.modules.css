@@ -1,0 +1,109 @@
+.categories ul li p {
+  letter-spacing: 1.3px;
+}
+
+.layout {
+  height: 350px;
+}
+
+.layout .layoutimg {
+  height: 350px;
+}
+
+.layout .layoutimg img {
+  width: 100%;
+  height: 100%;
+}
+
+.layouttrackers {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 150px;
+  z-index: 3;
+}
+
+.layouttrackers ul li {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(48, 47, 47, 0.3);
+}
+
+.layouttrackers ul .activetrackerpoint {
+  background-color: red !important;
+  border: 2px solid #fff;
+}
+
+.controlicons span {
+  cursor: pointer;
+}
+
+.categories .cards .card:hover,
+.activecard {
+  background-color: #db4444;
+  color: white;
+  transition: 1s all ease;
+}
+.card .categoryicon svg path,
+.card .categoryicon svg line {
+  transition: 0.5s all ease;
+}
+.card:hover .categoryicon svg path,
+.card:hover .categoryicon svg line {
+  stroke: white !important;
+}
+.activecard .categoryicon svg path,
+.activecard .categoryicon svg line {
+  transition: 0.5s all ease;
+}
+.activecard .categoryicon svg path,
+.activecard .categoryicon svg line {
+  stroke: white !important;
+}
+
+.cards .cardimg {
+  background-color: #f5f5f5;
+}
+
+.cards .card .icons,
+.cards .card .icons {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 5%;
+  right: 5%;
+}
+
+.cards .card .icons svg {
+  cursor: pointer;
+}
+
+.cards .card .cardimg button {
+  transition: 0.7s all ease;
+}
+
+.cards .card:hover .cardimg button,
+.activeexploreproductcard .cardimg button {
+  opacity: 100 !important;
+}
+.cards .card .icons svg:hover circle,
+.clickedIcon circle,
+.cards .card .icons svg:hover circle {
+  fill: black !important;
+}
+
+.cards .card .icons svg:hover path,
+.cards .card .icons svg:hover path {
+  stroke: white !important;
+}
+
+.clickedIcon path {
+  stroke: white !important;
+  fill: #db4444 !important;
+}
+
+.productcard {
+  background-color: #0d0d0d !important;
+  min-height: 235px;
+}
