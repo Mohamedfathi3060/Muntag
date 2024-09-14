@@ -78,7 +78,7 @@ export default function ProductCard({
     return stars;
   };
   return (
-    <div className="card border-0 position-relative col-2">
+    <div className="card border-0 position-relative col-3">
       <div className="cardimg d-flex justify-content-center py-5 rounded-1 position-relative">
         <img src="imgs/explore_product_1.png" alt="Product" />
         <button

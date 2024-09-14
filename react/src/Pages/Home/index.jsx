@@ -1,5 +1,5 @@
-import React from "react";
-import Productcard from "../../Components/ProductCard";
+import React, { useEffect, useState } from "react";
+import ProductCard from "../../Components/ProductCard";
 import { Link } from "react-router-dom";
 import {
   categories,
@@ -18,7 +18,49 @@ import {
   clickedIcon,
   productcard,
 } from "./style.modules.css";
+import FlashSaleSection from "../../Components/FlashSalesSection";
+import BroseByCategorySection from "../../Components/BrowseByCategorySection";
+import BestSellingProductsSection from "../../Components/BestSellingProductsSection";
+import ExploreOurProductsSection from "../../Components/ExploreOurProductsSection";
+import NewArrivalSection from "../../Components/NewArrivalSection";
+import FeaturesSection from "../../Components/FeaturesSection";
+
 export default function Home() {
+  let [time, setTime] = useState({
+    days: 10,
+    hours: 5,
+    minutes: 30,
+    seconds: 59,
+  });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime((prevTime) => {
+        let { days, hours, minutes, seconds } = prevTime;
+
+        if (seconds > 0) {
+          seconds--;
+        } else if (minutes > 0) {
+          minutes--;
+          seconds = 59;
+        } else if (hours > 0) {
+          hours--;
+          minutes = 59;
+          seconds = 59;
+        } else if (days > 0) {
+          days--;
+          hours = 23;
+          minutes = 59;
+          seconds = 59;
+        }
+
+        return { days, hours, minutes, seconds };
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
       <section>
@@ -171,122 +213,7 @@ export default function Home() {
           />
         </svg>
       </div>
-      <section>
-        <div className="title m-0 d-flex align-items-center">
-          <img
-            src="./imgs/headerIcon.svg"
-            alt="Section Title Icon"
-            className="m-2"
-          />
-          <p className="fw-bold text-danger m-0">Today's</p>
-        </div>
-        <div className="d-flex flex-wrap justify-content-md-between justify-content-center ps-3 my-3">
-          <div className="text">
-            <h1 className="fw-bold">Flash Sales</h1>
-          </div>
-          <div className="timer d-flex flex-wrap justify-content-between col-xl-3 col-lg-4 col-md-5 col-12">
-            <div className="unit d-flex flex-column align-items-center">
-              <span className="fw-bold">Days</span>
-              <span className="fs-2 fw-bold">03</span>
-            </div>
-            <div className="seperator my-4">
-              <h2 className="text-danger">:</h2>
-            </div>
-            <div className="unit d-flex flex-column align-items-center">
-              <span className="fw-bold">Hours</span>
-              <span className="fs-2 fw-bold">23</span>
-            </div>
-            <div className="seperator my-4">
-              <h2 className="text-danger">:</h2>
-            </div>
-            <div className="unit d-flex flex-column align-items-center">
-              <span className="fw-bold">minutes</span>
-              <span className="fs-2 fw-bold">19</span>
-            </div>
-            <div className="seperator my-4">
-              <h2 className="text-danger">:</h2>
-            </div>
-            <div className="unit d-flex flex-column align-items-center">
-              <span className="fw-bold">Seconds</span>
-              <span className="fs-2 fw-bold">56</span>
-            </div>
-          </div>
-          <div className="controlicons">
-            <span className="leftarrow">
-              <svg
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="23" cy="23" r="23" fill="#F5F5F5" />
-                <path
-                  d="M22 16L15 23L22 30M15 23H31"
-                  stroke="black"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-            <span className="rightarrow">
-              <svg
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="23" cy="23" r="23" fill="#F5F5F5" />
-                <path
-                  d="M14.5 23H31M31 23L24 16M31 23L24 30"
-                  stroke="black"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-          </div>
-        </div>
-        <div className="cards col-12 d-flex flex-wrap g-4 my-5">
-          <div className="row w-100">
-            {
-              <Productcard
-                item={{
-                  name: "product",
-                  price: 1200,
-                  pricebeforediscout: 1400,
-                  rating: 3.5,
-                  raters: 50,
-                }}
-              />
-            }
-            {
-              <Productcard
-                item={{
-                  name: "product2",
-                  price: 1200,
-                  pricebeforediscout: 2000,
-                  rating: 3,
-                  raters: 200,
-                }}
-              />
-            }
-            {
-              <Productcard
-                item={{
-                  name: "product3",
-                  price: 100,
-                  rating: 3.5,
-                  raters: 50,
-                }}
-              />
-            }
-          </div>
-        </div>
-      </section>
+      <FlashSaleSection items={null} time={time} />
       <div className="divider d-flex justify-content-center my-5">
         <svg
           width="1170"
@@ -305,60 +232,7 @@ export default function Home() {
           />
         </svg>
       </div>
-      <section>
-        <div className="title m-0 d-flex align-items-center">
-          <img
-            src="./imgs/headerIcon.svg"
-            alt="Section Title Icon"
-            className="m-2"
-          />
-          <p className="fw-bold text-danger m-0">Categories</p>
-        </div>
-        <div className="d-flex justify-content-between ps-3 my-3">
-          <div className="text">
-            <h1 className="fw-bold">Browse By Catrgory</h1>
-          </div>
-          <div className="controlicons">
-            <span className="leftarrow">
-              <svg
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="23" cy="23" r="23" fill="#F5F5F5" />
-                <path
-                  d="M22 16L15 23L22 30M15 23H31"
-                  stroke="black"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-            <span className="rightarrow">
-              <svg
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="23" cy="23" r="23" fill="#F5F5F5" />
-                <path
-                  d="M14.5 23H31M31 23L24 16M31 23L24 30"
-                  stroke="black"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-          </div>
-        </div>
-        <div className="cards d-flex flex-wrap g-4 justify-content-center my-5"></div>
-      </section>
+      <BroseByCategorySection items={null} />
       <div className="divider d-flex justify-content-center my-5">
         <svg
           width="1170"
@@ -377,33 +251,7 @@ export default function Home() {
           />
         </svg>
       </div>
-      <section>
-        <div className="title m-0 d-flex align-items-center justify-content-between">
-          <div className="d-flex align-items-center">
-            <img
-              src="./imgs/headerIcon.svg"
-              alt="Section Title Icon"
-              className="m-2"
-            />
-            <p className="fw-bold text-danger m-0">This Months</p>
-          </div>
-          <button type="button" className="btn btn-danger">
-            View All
-          </button>
-        </div>
-        <div className="d-flex justify-content-between ps-3 my-3">
-          <div className="text">
-            <h1 className="fw-bold">Best Selling Products</h1>
-          </div>
-        </div>
-        <div className="cards d-flex flex-wrap g-4 my-5">
-          {/* {
-                                    this.props.exploreProducts.map((product,i)=>(
-                                        <ProductCard name={product.name} price={product.price.value} sale={product.sale} image={product.allArticleBaseImages[0]} index={i}/>
-                                    ))
-                                } */}
-        </div>
-      </section>
+      <BestSellingProductsSection items={null} />
       <div className="divider d-flex justify-content-center my-5">
         <svg
           width="1170"
@@ -422,33 +270,7 @@ export default function Home() {
           />
         </svg>
       </div>
-      <section>
-        <div className="title m-0 d-flex align-items-center justify-content-between">
-          <div className="d-flex align-items-center">
-            <img
-              src="./imgs/headerIcon.svg"
-              alt="Section Title Icon"
-              className="m-2"
-            />
-            <p className="fw-bold text-danger m-0">This Months</p>
-          </div>
-          <button type="button" className="btn btn-danger">
-            View All
-          </button>
-        </div>
-        <div className="d-flex justify-content-between ps-3 my-3">
-          <div className="text">
-            <h1 className="fw-bold">Best Selling Products</h1>
-          </div>
-        </div>
-        <div className="cards d-flex flex-wrap g-4 my-5">
-          {/* {
-                                    this.props.exploreProducts.map((product,i)=>(
-                                        <ProductCard name={product.name} price={product.price.value} sale={product.sale} image={product.allArticleBaseImages[0]} index={i}/>
-                                    ))
-                                } */}
-        </div>
-      </section>
+      <ExploreOurProductsSection items={null} />
       <div className="divider d-flex justify-content-center my-5">
         <svg
           width="1170"
@@ -467,60 +289,7 @@ export default function Home() {
           />
         </svg>
       </div>
-      <section>
-        <div className="title m-0 d-flex align-items-center">
-          <img
-            src="./imgs/headerIcon.svg"
-            alt="Section Title Icon"
-            className="m-2"
-          />
-          <p className="fw-bold text-danger m-0">Our Products</p>
-        </div>
-        <div className="d-flex justify-content-between ps-3 my-3">
-          <div className="text">
-            <h1 className="fw-bold">Explore Our Products</h1>
-          </div>
-          <div className="controlicons">
-            <span className="leftarrow">
-              <svg
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="23" cy="23" r="23" fill="#F5F5F5" />
-                <path
-                  d="M22 16L15 23L22 30M15 23H31"
-                  stroke="black"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-            <span className="rightarrow">
-              <svg
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="23" cy="23" r="23" fill="#F5F5F5" />
-                <path
-                  d="M14.5 23H31M31 23L24 16M31 23L24 30"
-                  stroke="black"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-          </div>
-        </div>
-        <div className="cards d-flex flex-wrap g-4 my-5"></div>
-      </section>
+      <NewArrivalSection />
       <div className="divider d-flex justify-content-center my-5">
         <svg
           width="1170"
@@ -539,180 +308,7 @@ export default function Home() {
           />
         </svg>
       </div>
-      <section>
-        <div className="title m-0 d-flex align-items-center">
-          <img
-            src="./imgs/headerIcon.svg"
-            alt="Section Title Icon"
-            className="m-2"
-          />
-          <p className="fw-bold text-danger m-0">Featured</p>
-        </div>
-        <div className="d-flex justify-content-between ps-3 my-3">
-          <div className="text">
-            <h1 className="fw-bold">New Arrival</h1>
-          </div>
-          {/* <div className="controlicons">
-            <span className="leftarrow">
-              <svg
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="23" cy="23" r="23" fill="#F5F5F5" />
-                <path
-                  d="M22 16L15 23L22 30M15 23H31"
-                  stroke="black"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-            <span className="rightarrow">
-              <svg
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="23" cy="23" r="23" fill="#F5F5F5" />
-                <path
-                  d="M14.5 23H31M31 23L24 16M31 23L24 30"
-                  stroke="black"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-          </div> */}
-        </div>
-        <div className="cards d-flex flex-wrap">
-          <div className="col-md-5 col-12 me-lg-5">
-            <div className="productcard position-relative m-2 h-100">
-              <img
-                src="./imgs/ps5-slim-goedkope-playstation_large 1.png"
-                alt="playstation_large"
-                className="w-100 pt-3"
-              />
-              <div className="position-absolute z-2 text-white m-4 bottom-0">
-                <div className="title">PlayStation 5</div>
-                <div className="description my-2">
-                  Black and White version of the PS5 <br />
-                  coming out on sale.
-                </div>
-                <Link to="" className="link-light">
-                  Shop Now
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-6 col-12">
-            <div className="productcard position-relative m-2">
-              <img
-                src="./imgs/attractive-woman-wearing-hat-posing-black-background 1.png"
-                alt="attractive-woman-wearing-hat"
-                className="w-100"
-              />
-              <div className="position-absolute z-2 text-white m-4 bottom-0">
-                <div className="title">Women’s Collections</div>
-                <div className="description my-2">
-                  Featured woman collections that <br />
-                  give you another vibe.
-                </div>
-                <Link to="" className="link-light">
-                  Shop Now
-                </Link>
-              </div>
-            </div>
-            <div className="d-flex flex-wrap m-2">
-              <div className="col-md-6 col-12">
-                <div className="productcard position-relative d-flex justify-content-around h-100 mt-3 p-3 me-3">
-                  <img
-                    src="./imgs/speakers.png"
-                    alt="speakers"
-                    className="w-50"
-                  />
-                  <div className="position-absolute z-2 text-white m-4 bottom-0 start-0">
-                    <div className="title">Speakers</div>
-                    <div className="description my-1">
-                      Amazon wireless speakers
-                    </div>
-                    <Link to="" className="link-light">
-                      Shop Now
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6 col-12">
-                <div className="productcard position-relative d-flex justify-content-around h-100 mt-3 p-3">
-                  <img
-                    src="./imgs/Perfume.png"
-                    alt="Perfume"
-                    className="w-50"
-                  />
-                  <div className="position-absolute z-2 text-white m-4 bottom-0 start-0">
-                    <div className="title">Perfume</div>
-                    <div className="description my-1">
-                      GUCCI INTENSE OUD EDP
-                    </div>
-                    <Link to="" className="link-light">
-                      Shop Now
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <div className="divider d-flex justify-content-center my-5">
-        <svg
-          width="1170"
-          height="1"
-          viewBox="0 0 1170 1"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <line
-            opacity="0.3"
-            x1="1170"
-            y1="0.25"
-            y2="0.25"
-            stroke="black"
-            strokeWidth="0.5"
-          />
-        </svg>
-      </div>
-      <section>
-        <div className="row">
-          <div className="col-md-4">
-            <div className="d-flex flex-column align-items-center text-center">
-              <img src="./imgs/Services.png" alt="Delivery Service" />
-              <h4 className="fw-bold my-2">FREE AND FAST DELIVERY</h4>
-              <p>Free delivery for all orders over $140</p>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="d-flex flex-column align-items-center text-center">
-              <img src="./imgs/Services2.png" alt="Delivery Service" />
-              <h4 className="fw-bold my-2">24/7 CUSTOMER SERVICE</h4>
-              <p>Friendly 24/7 customer support</p>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="d-flex flex-column align-items-center text-center">
-              <img src="./imgs/Services3.png" alt="Delivery Service" />
-              <h4 className="fw-bold my-2">MONEY BACK GUARANTEE</h4>
-              <p>We reurn money within 30 days</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FeaturesSection />
     </>
   );
 }
