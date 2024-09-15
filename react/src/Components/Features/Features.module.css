@@ -1,0 +1,15 @@
+.card {
+  border: 1px solid rgb(0, 0, 0, 0.2);
+  border-radius: 3px;
+  padding: 30px 0;
+}
+.num {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.active {
+  background-color: #db4444;
+  color: white;
+  border: none;
+  box-shadow: 1px 1px 8px 2px rgba(0, 0, 0, 0.1);
+}
