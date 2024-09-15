@@ -32,6 +32,10 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 # Enable Apache mod_rewrite for Laravel routes
 RUN a2enmod rewrite
 
+# Install Composer dependencies
+RUN composer install --optimize-autoloader --no-dev
+
+
 # Expose port 80 to the web
 EXPOSE 80
 
