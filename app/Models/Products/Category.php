@@ -17,6 +17,6 @@ class Category extends Model
     }
     public function attributes():HasMany
     {
-        return $this->hasMany(Category_Attribute::class);
+        return $this->hasMany(Category_Attribute::class,'category_id','category_id');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models\Products;
 
+use App\Models\Cart;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -23,7 +24,18 @@ class Product_Item extends Model
     // each model has "belongsToMany relation"
     public function values()
     {
-        return $this->belongsToMany(Category_Attribute_Value::class,'item_values')
+        return $this->belongsToMany(Category_Attribute_Value::class,'item_item_value','item_id','item_value_id')
+            ->withTimestamps();
+    }
+    public function carts()
+    {
+        return $this
+            ->belongsToMany(
+                Cart::class,
+                'cart_item',
+                'product_item_id',
+                'cart_id',
+            )
             ->withTimestamps();
     }
 

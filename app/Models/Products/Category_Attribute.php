@@ -10,9 +10,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Category_Attribute extends Model
 {
     use HasFactory;
+    protected $table = "category_attributes";
     public function category():BelongsTo
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'category_id','category_id');
     }
     public function values():HasMany
     {

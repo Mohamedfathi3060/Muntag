@@ -77,11 +77,12 @@ class productsController extends Controller
         // fetch product
         // fetch its items
         // bind them
-        $product = Product::with('items')->findOrFail($productId);
+        $product = Product::with('items.values','category.attributes')->findOrFail($productId);
+//        $product = Product::with('items.values.attribute')->findOrFail($productId);
 
         return response()->json(
         [
-            "data"=>$product
+            "data" => $product
         ],200);
 
 //        $product = DB::table('products')
