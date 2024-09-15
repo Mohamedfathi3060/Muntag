@@ -9,6 +9,7 @@ import member3 from "../../imgs/member3.png";
 import Path from "../../Components/path/Path";
 import Features from "../../Components/Features/Features";
 import Member from "../../Components/member/Member";
+import FeaturesSection from "../../Components/FeaturesSection/index";
 const FEATURES = [
   {
     logo: serv,
@@ -73,7 +74,7 @@ export default function About() {
               ranging from consumer.
             </p>
           </article>
-          <div className="col-6 ms-auto">
+          <div className="col-6">
             <img src={about} alt="" className="w-100" />
           </div>
         </div>
@@ -105,6 +106,9 @@ export default function About() {
             </div>
           );
         })}
+      </div>
+      <div className="py-5">
+        <FeaturesSection></FeaturesSection>
       </div>
     </div>
   );
