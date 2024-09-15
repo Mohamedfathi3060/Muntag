@@ -21,6 +21,11 @@ WORKDIR /var/www/html
 # Copy existing application directory contents
 COPY . /var/www/html
 
+
+# Ensure the Apache server points to the public folder of Laravel
+RUN sed -i 's#/var/www/html#/var/www/html/public#' /etc/apache2/sites-available/000-default.conf
+
+
 # Set file permissions for Laravel folders
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
