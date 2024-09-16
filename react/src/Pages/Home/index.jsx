@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../../Components/ProductCard";
 import { Link } from "react-router-dom";
+import RightAndLeftToggler from "../../Components/RightAndLeftToggler";
 import {
   categories,
   layout,
@@ -18,12 +19,10 @@ import {
   clickedIcon,
   productcard,
 } from "./style.modules.css";
-import FlashSaleSection from "../../Components/FlashSalesSection";
-import BroseByCategorySection from "../../Components/BrowseByCategorySection";
-import BestSellingProductsSection from "../../Components/BestSellingProductsSection";
-import ExploreOurProductsSection from "../../Components/ExploreOurProductsSection";
 import NewArrivalSection from "../../Components/NewArrivalSection";
 import FeaturesSection from "../../Components/FeaturesSection";
+import ProductsSection from "../../Components/ProductsSection";
+import Timer from "../../Components/Timer";
 
 export default function Home() {
   let [time, setTime] = useState({
@@ -213,82 +212,40 @@ export default function Home() {
           />
         </svg>
       </div>
-      <FlashSaleSection items={null} time={time} />
-      <div className="divider d-flex justify-content-center my-5">
-        <svg
-          width="1170"
-          height="1"
-          viewBox="0 0 1170 1"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+      {
+        <ProductsSection
+          items={null}
+          sectionHeader={"Today's"}
+          sectionName={"Flash Sales"}
+          toggler={<RightAndLeftToggler />}
         >
-          <line
-            opacity="0.3"
-            x1="1170"
-            y1="0.25"
-            y2="0.25"
-            stroke="black"
-            strokeWidth="0.5"
-          />
-        </svg>
-      </div>
-      <BroseByCategorySection items={null} />
-      <div className="divider d-flex justify-content-center my-5">
-        <svg
-          width="1170"
-          height="1"
-          viewBox="0 0 1170 1"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <line
-            opacity="0.3"
-            x1="1170"
-            y1="0.25"
-            y2="0.25"
-            stroke="black"
-            strokeWidth="0.5"
-          />
-        </svg>
-      </div>
-      <BestSellingProductsSection items={null} />
-      <div className="divider d-flex justify-content-center my-5">
-        <svg
-          width="1170"
-          height="1"
-          viewBox="0 0 1170 1"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <line
-            opacity="0.3"
-            x1="1170"
-            y1="0.25"
-            y2="0.25"
-            stroke="black"
-            strokeWidth="0.5"
-          />
-        </svg>
-      </div>
-      <ExploreOurProductsSection items={null} />
-      <div className="divider d-flex justify-content-center my-5">
-        <svg
-          width="1170"
-          height="1"
-          viewBox="0 0 1170 1"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <line
-            opacity="0.3"
-            x1="1170"
-            y1="0.25"
-            y2="0.25"
-            stroke="black"
-            strokeWidth="0.5"
-          />
-        </svg>
-      </div>
+          <Timer time={time} />
+        </ProductsSection>
+      }
+      {
+        <ProductsSection
+          items={null}
+          sectionHeader={"Categories"}
+          sectionName={"Browse By Catrgory"}
+          toggler={<RightAndLeftToggler />}
+        />
+      }
+      {
+        <ProductsSection
+          items={null}
+          sectionHeader={"This Months"}
+          sectionName={"Best Selling Products"}
+          toggler={null}
+        />
+      }
+      {
+        <ProductsSection
+          items={null}
+          sectionHeader={"Our Products"}
+          sectionName={"Explore Our Products"}
+          toggler={<RightAndLeftToggler />}
+        />
+      }
       <NewArrivalSection />
       <div className="divider d-flex justify-content-center my-5">
         <svg
