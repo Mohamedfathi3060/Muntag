@@ -10,6 +10,7 @@ import Signup from "./Pages/Signup";
 import Login from "./Pages/Login";
 import Contact from "./Pages/Contact";
 import About from "./Pages/About";
+import Cart from "./Pages/Cart/Cart";
 
 export default function App() {
   return (
@@ -23,7 +24,7 @@ export default function App() {
             <Route path="login" element={<Login />}></Route>
             <Route path="contact" element={<Contact />}></Route>
             <Route path="about" element={<About />}></Route>
-
+            <Route path="cart" element={<Cart />}></Route>
             <Route path="*" element={<NotFound />}></Route>
           </Routes>
         </div>

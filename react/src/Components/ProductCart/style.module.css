@@ -1,0 +1,45 @@
+.row {
+  box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.05);
+  padding: 14px 24px;
+  border-radius: 3px;
+  position: relative;
+}
+.inputWrapper {
+  position: relative;
+}
+.cancel {
+  top: -9%;
+  left: -2%;
+  position: absolute;
+  cursor: pointer;
+}
+.customInput {
+  width: 4rem;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+/* On focus, change border color */
+
+/* Remove the arrows (spinners) from number input on Chrome, Safari, and Edge */
+.customInput::-webkit-outer-spin-button,
+.customInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.customInput[type="number"] {
+  -moz-appearance: textfield; /* Remove spinner on Firefox */
+}
+.arrows {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 53%;
+  top: 15%;
+  height: 100%;
+}
