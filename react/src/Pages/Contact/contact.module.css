@@ -1,0 +1,10 @@
+.info {
+  padding: 40px 45px 50px 35px;
+  box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+.form {
+  padding: 40px 30px;
+  box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}

@@ -1,0 +1,7 @@
+.prev {
+  color: rgb(0, 0, 0, 0.5);
+}
+.curr {
+  font-size: 16px;
+  font-weight: 500;
+}

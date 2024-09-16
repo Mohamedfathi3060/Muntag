@@ -1,0 +1,8 @@
+.name {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+a {
+  color: black;
+  cursor: pointer;
+}

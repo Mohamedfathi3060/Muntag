@@ -1,0 +1,86 @@
+.login-container {
+  padding: 30px 135px 140px 0;
+}
+.img-container img {
+  margin-left: -80px;
+}
+.login-container section:last-child {
+  margin-left: 130px;
+}
+.login-container section:last-child h2 {
+  letter-spacing: 1.2px;
+}
+
+.login-container section:last-child form input {
+  padding: 13px;
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid black;
+}
+.login-container section:last-child form input:focus {
+  outline: 0;
+}
+.email-input {
+  position: relative;
+}
+.email-input p,
+.password-input p {
+  position: absolute;
+  font-size: 14px;
+  background-color: white;
+  left: 2%;
+  font-weight: 600;
+  padding: 0 5px;
+  transition: all 0.5s ease;
+}
+.password-input {
+  position: relative;
+}
+.initalemail {
+  top: 28%;
+}
+.initalpassword {
+  top: 45%;
+}
+.goemail {
+  top: -20%;
+}
+.gopassword {
+  top: 26%;
+}
+.not-visible {
+  visibility: hidden;
+  opacity: 0;
+}
+.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.login-container section:last-child form input[type="password"] {
+  margin-bottom: 48px;
+  margin-top: 48px;
+}
+.login-container section:last-child form .buttons button {
+  border: none;
+  background-color: #db4444;
+  color: white;
+  padding: 10px 40px;
+  border-radius: 4px;
+}
+.login-container section:last-child form .buttons button:hover {
+  background-color: rgb(219, 68, 68, 0.8);
+}
+.login-container section:last-child form .buttons a {
+  color: #db4444;
+  text-decoration: none;
+}
+.login-container section:last-child form .buttons a:hover {
+  color: #db4444;
+  text-decoration: underline;
+}
+.login-container section:last-child p a {
+  color: black;
+  font-weight: 600;
+}
