@@ -4,8 +4,13 @@ import Path from "../../Components/path/Path";
 import img1 from "../../imgs/Monitor-Cart-Small.png";
 import Button from "../../Components/Button/Button";
 import ProductCard from "../../Components/ProductCart/ProductCart";
+import { useSelector, useDispatch } from "react-redux";
+import { decrement, increment, incrementByAmount } from "../../Redux/cartSlice";
 
 export default function Cart() {
+  const count = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
   return (
     <div className="container-fluid my-5 px-lg-5 px-4">
       <Path current={"Cart"} previus={["Home"]}></Path>
@@ -30,16 +35,7 @@ export default function Cart() {
               border="1px solid rgba(0,0,0,0.5)"
               height={"50px"}
               className={"col-12 h6"}
-            />
-          </div>
-          <div className="col-2 ms-auto">
-            <Button
-              message={"Update Cart"}
-              bg="#fff"
-              color="#000"
-              border="1px solid rgba(0,0,0,0.5)"
-              height={"50px"}
-              className={"col-12 h6"}
+              
             />
           </div>
         </div>

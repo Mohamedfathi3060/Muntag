@@ -12,18 +12,20 @@ export default function Button({
   classNameforLink,
 }) {
   return (
-    <Link to={to} className={classNameforLink}>
-      <button
-        style={{
-          height: height,
-          backgroundColor: bg,
-          border: border,
-          color: color,
-        }}
-        className={`${className}`}
-      >
-        {message}
-      </button>
-    </Link>
+    <>
+      <Link to={to} className={classNameforLink}>
+        <button
+          style={{
+            height: height,
+            backgroundColor: bg,
+            border: border,
+            color: color,
+          }}
+          className={`${className}`}
+        >
+          {message}
+        </button>
+      </Link>
+    </>
   );
 }

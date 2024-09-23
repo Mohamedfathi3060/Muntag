@@ -8,12 +8,12 @@ export default function NotFound() {
     <div className="container my-5">
       <Path current={"404 Error"} previus={["Home"]}></Path>
 
-      <div className="notfound row text-center align-items-center py-5">
+      <div className="notfound text-center py-5">
         <h1 className="text-uppercase text-black">404 Not Found</h1>
         <p className="text-black mt-3 mb-5">
           Your visited page not found. You may go home page.
         </p>
-        <div className="col-2 mx-auto">
+        <div className="col-2 mx-auto pt-3">
           <Button
             message={"Back to home page"}
             className={"w-100 py-3"}
